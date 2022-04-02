@@ -1,19 +1,20 @@
 """
 Team SCAG Observer Pattern Implementation
-concrete1.py - implementation for the first concrete observer
+concrete2.py - implementation for the second concrete observer
 """
 
 from PyQt6.QtWidgets import *
 from observer import Observer
+import pyqtgraph
 
 
-class AllLines(Observer, QWidget):
+class Backwards(Observer, QWidget):
     def __init__(self, subject):
         super().__init__(subject)
         self.data = ""
 
         # gui elements
-        self.setWindowTitle("All Lines")
+        self.setWindowTitle("Backwards")
 
         layout = QGridLayout()
         self.setLayout(layout)
@@ -24,5 +25,5 @@ class AllLines(Observer, QWidget):
     # override of the "abstract" method
     def update_subject(self):
         self.subject = self.subject.get_state()
-        self.data += self.subject.data + "\n"
+        self.data = ''.join(reversed(self.subject.data))
         self.text.setText(self.data)
