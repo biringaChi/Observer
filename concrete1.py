@@ -1,3 +1,8 @@
+"""
+Team SCAG Observer Pattern Implementation
+concrete1.py - implementation for the first concrete observer
+"""
+
 from PyQt6.QtWidgets import *
 from observer import Observer
 import pyqtgraph
