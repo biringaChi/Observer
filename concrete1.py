@@ -3,12 +3,22 @@ from observer import Observer
 import pyqtgraph
 
 
-class Concrete1(Observer):
+class AllLines(Observer, QWidget):
     def __init__(self, subject):
         super().__init__(subject)
+        self.data = ""
 
-        # add gui code here, use self.subject for data
+        # gui elements
+        self.setWindowTitle("All Lines")
 
-    def process_update(self):
-        # add refresh code here, use self.subject for data
-        pass
+        layout = QGridLayout()
+        self.setLayout(layout)
+
+        self.text = QTextEdit()
+        layout.addWidget(self.text, 0, 0)
+
+    # override of the "abstract" method
+    def update_subject(self):
+        self.subject = self.subject.get_state()
+        self.data += self.subject.data + "\n"
+        self.text.setText(self.data)

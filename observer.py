@@ -12,8 +12,4 @@ class Observer(QWidget):
         self.subject = subject.get_state()
 
     def update_subject(self):
-        self.subject = self.subject.get_state()
-        self.process_update()
-
-    def process_update(self):
         pass

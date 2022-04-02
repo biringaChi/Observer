@@ -5,7 +5,7 @@ main.py
 
 from PyQt6.QtWidgets import QApplication
 from subject import Subject
-from concrete1 import Concrete1
+from concrete1 import AllLines
 import sys
 
 # start PyQt application
@@ -15,7 +15,7 @@ app = QApplication([])
 s = Subject()
 s.show()
 
-o1 = Concrete1(s)
+o1 = AllLines(s)
 s.add_observer(o1)
 o1.show()
 
